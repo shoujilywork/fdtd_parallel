@@ -1,0 +1,40 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "C++ Debug (Linux)",
+            "type": "cppdbg",
+            "request": "launch",
+            "program": "${workspaceFolder}/build/fdtd_sim",
+            "args": [],
+            "stopAtEntry": false,
+            "cwd": "${workspaceFolder}",
+            "environment": [
+                { "name": "OMP_NUM_THREADS", "value": "14" },
+                { "name": "OMP_PROC_BIND", "value": "TRUE" },
+                { "name": "GOMP_CPU_AFFINITY", "value": "0-13" },
+                { "name": "CUDA_VISIBLE_DEVICES", "value": "0" },
+                { "name": "CUDA_CACHE_DISABLE", "value": "0" }
+            ],
+            "externalConsole": false,
+            "MIMode": "gdb",
+            "miDebuggerPath": "/usr/bin/gdb",
+            "setupCommands": [
+                {
+                    "description": "Enable pretty-printing for gdb",
+                    "text": "-enable-pretty-printing",
+                    "ignoreFailures": true
+                },
+                {
+                    "description": "Break on C++ exceptions",
+                    "text": "catch throw",
+                    "ignoreFailures": true
+                }
+            ],
+            "logging": {
+                "engineLogging": false
+            },
+            "preLaunchTask": "Build Project"
+        }
+    ]
+}

@@ -1,0 +1,26 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "Build Project",
+            "type": "shell",
+            "command": "g++",
+            "args": [
+                "-O2",
+                "-g",
+                "-std=c++17",
+                "-fopenmp",
+                "-Iinclude",
+                "src/*.cpp",
+                "-o",
+                "build/fdtd_sim"
+            ],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "problemMatcher": ["$gcc"],
+            "detail": "Compiled with g++"
+        }
+    ]
+}
